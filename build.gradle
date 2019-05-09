@@ -1,0 +1,25 @@
+plugins {
+    id 'java-platform'
+    id 'maven-publish'
+}
+
+group 'com.budjb.gradle'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    constraints {
+        api platform("org.springframework.boot:spring-boot-dependencies:2.1.4")
+    }
+}
+
+publishing {
+    publications {
+        library(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+}
